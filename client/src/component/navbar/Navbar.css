@@ -1,0 +1,82 @@
+.nav{
+   min-height: 50px;
+   margin: 0 auto;
+   width: 100%;
+   border-top: solid 2px #ef8236;
+   box-shadow: 0 1px 5px #00000033;
+   position: fixed;
+   z-index: 5;
+   top: 0;
+   left: 0;
+   background-color: #f8f9f8;
+   display:flex;
+   justify-content: center;
+}
+
+.navbar{
+   display: flex;
+   height: 100%;
+   justify-content: space-between;
+   align-items: center;
+   min-width: 85%;
+}
+
+.nav-logo{
+   padding: 5px 25px;
+}
+
+.nav-item{
+   margin: 0 3px;
+   font-size: small;
+   text-decoration: none;
+   font-weight: 500;
+   color: rgb(70, 70, 70);
+   transition: 0.2s;
+}
+
+.nav-btn{
+   cursor: pointer;
+   color: rgb(75, 75, 75);
+   padding: 10px 20px;
+}
+.nav-btn:hover{
+   background-color: rgb(226, 226, 226);
+   color: rgb(121, 122, 123);
+}
+
+
+.navbar form{
+   flex-grow: 1;
+   padding: 0 12px;
+   position: relative;
+}
+.navbar form #search{
+   min-width: 80%;
+   margin: 0;
+   padding: 8px 10px 8px 30px;
+   font-size: 13px;
+   border: solid 1px #2187ee33;
+   border-radius: 5px;
+}
+.navbar form #search:hover{
+   border:solid 1px #1b19b233;
+}
+.navbar form .fa-magnifying-glass{
+   position:absolute;
+   top:9px;
+   left:18px;
+}
+
+
+.nav-links{
+   padding: 3px 13px;
+   border: solid 0.12rem #1d275e33;
+   border-radius: 5px;
+   background-color: #e7f8fc;
+   cursor: pointer;
+   text-decoration: none;
+}
+
+.nav-links:hover{
+   background-color: #d3e4eb;
+}
