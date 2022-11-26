@@ -8,8 +8,7 @@ import {setCurrentUser} from './actions/currentUser'
 import {getAllQuestion} from "./actions/AskQuestion";
 import Button from "./component/button/Button";
 import {clrError, showMessage} from "./actions/Error";
-
-
+import MobileMenu from "./component/mobile-menu/mobileMenu";
 function App() {
   const dispatch=useDispatch()
   const {error,message}=useSelector((state)=>state.answer)
@@ -29,6 +28,7 @@ function App() {
     <div className="App">
     <Router>
       <Navbar />
+      <MobileMenu/>
       {(error || message)  &&
           <div className={"error-message"}>
             <div style={{flexGrow:1}}/>
@@ -42,7 +42,7 @@ function App() {
             </Button>
             </div>
           </div>}
-      <AppRoutes />
+      {<AppRoutes />}
     </Router>
 
     </div>

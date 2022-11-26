@@ -1,5 +1,4 @@
-import React, {useEffect} from 'react'
-import {Logo} from '../../assets/Logo'
+import React, {useEffect, useState} from 'react'
 import { Link } from '../button/Link'
 import Avatar from '../avatar/Avatar'
 import Button from '../button/Button'
@@ -7,10 +6,13 @@ import { useDispatch, useSelector} from 'react-redux'
 import { removeCurrentUser } from '../../actions/currentUser'
 import "./Navbar.css"
 import decode from "jwt-decode";
+import logo  from '../../assets/logo.png'
+import {Menu} from "./Menu";
 
 
 function Navbar() {
    const dispatch=useDispatch()
+   const [iconShow,setIconShow]=useState(false)
    const {currentUser:User}= useSelector((state)=>state.user)
    const logOut=()=>{
       dispatch(removeCurrentUser())
@@ -25,26 +27,33 @@ function Navbar() {
       }
    },[logOut])
 
+   function setShow() {
+     setIconShow(!iconShow)
+      console.log(iconShow)
+   }
+
    return (
     <nav className='nav'>
       <div className="navbar">
          <Link to="/" className='nav-item nav-logo'>
-            <Logo/>
+            <img src={logo} alt={'Logo'}/>
          </Link>
+         <Button className={'search-icon-btn'} onClick={setShow}>
+            <i className="fa-solid fa-magnifying-glass"></i>
+         </Button>
          <Link to="/" className="nav-item nav-btn"> About </Link>
          <Link to="/" className="nav-item nav-btn"> Products </Link>
          <Link to="/" className="nav-item nav-btn"> For Teams </Link>
-
          <form>
-            <input type="text" name="search" id="search" placeholder='Seach....' />
+            <input type="text" name="search" id="search" placeholder='Search....' />
             <i className="fa-solid fa-magnifying-glass"></i>
          </form>
          {User === null ? 
             <Link to="/auth" className='nav-item nav-links'>
                Log In
             </Link> :
-            <>
-               <Link to={`/user/${User?.result?._id}`} style={{textDecoration:'none'}}>
+             (<div className={'logout'}>
+               <Link className={'avatar-id'} to={`/user/${User?.result?._id}`} style={{textDecoration:'none'}}>
                   <Avatar
                      backgroundColor={'#009dff'}
                      px={'12px'}
@@ -54,12 +63,23 @@ function Navbar() {
                      color="white"
                   />
                </Link>
-               <Button onClick={logOut} className={"nav-item nav-links"} >
+               <Button id={'logout-btn-id'} onClick={logOut} className={"nav-item nav-links"} >
                   Log Out
                </Button>
-            </>  
+               <Menu className={'menu-nav'}/>
+                 </div>
+            )
       }
-      </div>
+         </div>
+       {iconShow? (
+           <div className={'mobile-searchbar'}>
+              <form>
+                 <input type="text" name="search" id="search" placeholder='Search....' />
+                 <i className="fa-solid fa-magnifying-glass"></i>
+                 <Button className={"search-btn"} children={"Search"}/>
+              </form>
+           </div>
+       ):null}
    </nav>
   )
 }

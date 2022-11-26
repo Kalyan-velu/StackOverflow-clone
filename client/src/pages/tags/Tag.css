@@ -1,8 +1,12 @@
-.tag-h1{
+@media (min-width: 300px){
+    .tag-container{
+        width: 100%;
+    }
+    .tag-h1{
     font-weight: 600;
     margin-top: 40px;
     text-align: center;
-}
+    }
 .p{
     margin: 0;
     font-size: 15px;
@@ -12,7 +16,6 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
     gap: 10px;
-
 }
 .tag{
     padding: 10px;
@@ -36,4 +39,12 @@
 .tag .p{
     font-size: 14px;
     color: rgba(16, 10, 16, 0.13);
+}}
+@media (min-width: 780px){
+    .home-container-1 .tag-container{
+        display: grid;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
 }
