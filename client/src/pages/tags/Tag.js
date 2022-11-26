@@ -26,6 +26,7 @@ const Tags = () => {
         <div className={"home-container-1"}>
             <LeftSidebar/>
             <div className={"home-container-2"}>
+                <div className={'tag-container'}>
                 <h1 className={'tag-h1'}> Tags </h1>
                 <p className={'p'}>A tag is a keyword or label that categories your question with other, similar questions</p>
                 <p className={'p'}>Using the right tags makes it easier for others to find and answer your question.</p>
@@ -35,6 +36,7 @@ const Tags = () => {
                             <TagsList key={index} tag={tag}/>
                         ))
                     }
+                </div>
                 </div>
             </div>
         </div>
