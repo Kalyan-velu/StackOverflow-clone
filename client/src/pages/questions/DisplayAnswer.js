@@ -17,7 +17,7 @@ const DisplayAnswer = ({question}) => {
     const dispatch=useDispatch()
     const location=useLocation()
     const {currentUser:user}=useSelector((state)=>state.user)
-    const url="http://localhost:3000"
+    const url="https://cstack-overflow.herokuapp.com"
   function userAnswered(userAnswered) {
     if(!userAnswered)
       return "A"
