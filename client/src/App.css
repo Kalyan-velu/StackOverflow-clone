@@ -76,3 +76,15 @@
 .error-message .btn:hover{
    font-size: 24px;
 }
+body::-webkit-scrollbar{
+   width: 0.3rem;
+   z-index: 8;
+}
+body::-webkit-scrollbar-button{
+   background-color: #9595b0;
+   display: none;
+}
+body::-webkit-scrollbar-thumb{
+   background-color: #00003e;
+   border-radius: 0.2rem;
+}
