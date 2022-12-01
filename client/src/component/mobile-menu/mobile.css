@@ -8,11 +8,12 @@
         min-width: 3.4rem;
         margin: 0.5rem 0;
         display: flex;
-        background-color: #3a3a3a;
+        background: rgba(212, 81, 0, 0.73);
         flex-direction: row;
         justify-content: center;
         transition: height 600ms ease;
     }
+
     .dropdown .stagger-icon{
         color: #e3e6e8;
         margin: 0;
