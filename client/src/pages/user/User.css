@@ -1,3 +1,6 @@
+.user-list-header h1{
+    text-align: center;
+}
 .user-list-container{
     padding: 30px 0;
     display: grid;

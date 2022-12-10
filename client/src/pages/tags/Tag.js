@@ -2,6 +2,7 @@ import React from 'react'
 import LeftSidebar from "../../component/bars/leftsidebar/LeftSidebar";
 import TagsList from "./TagsList";
 import './Tag.css'
+import RightSidebar from '../../component/bars/rightsidebar/RightSidebar';
 
 const Tags = () => {
     const tagList=[{
@@ -32,12 +33,13 @@ const Tags = () => {
                 <p className={'p'}>Using the right tags makes it easier for others to find and answer your question.</p>
                 <div className={'tags-container'}>
                     {
-                        tagList && tagList.map((tag,index)=>(
+                        tagList.map((tag,index)=>(
                             <TagsList key={index} tag={tag}/>
                         ))
                     }
                 </div>
                 </div>
+                <RightSidebar/>
             </div>
         </div>
   )}

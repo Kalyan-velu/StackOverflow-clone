@@ -1,0 +1,38 @@
+@media (min-width: 320px) {
+  .community-home-container {
+    margin-top: 3.2rem;
+    width: 100%;
+  }
+  .newpost-form {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .newpost-form label textarea {
+    width: calc(100% - 10%);
+    margin: 0 auto;
+    border-radius: 0.3rem;
+  }
+  .form-btn .btn {
+    position: absolute;
+    top: 0%;
+  }
+}
+@media (min-width: 786px) {
+  .community-home-container {
+    margin-top: 1.2rem;
+    min-width: calc(100% - 264px);
+  }
+  .newpost-form {
+    min-width: 80%;
+    margin: 0 auto;
+  }
+  .newpost-form label textarea {
+    width: calc(100% - 10%);
+    margin: 0 auto;
+    border-radius: 0.3rem;
+  }
+  .form-btn .btn {
+    position: absolute;
+    top: 0%;
+  }
+}

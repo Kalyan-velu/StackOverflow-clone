@@ -1,5 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react'
-import {askQ,welcomeDialogs} from "./intention";
+import React, { useRef, useState} from 'react'
 import Button from "../button/Button";
 import './ChatBox.css'
 import {useSelector} from "react-redux";
@@ -23,12 +22,12 @@ const ChatScroll=(props)=>{
             sender:''
         }
         if(userMessage==='hsbc'){
-            const newMessageData= await Object.assign({},messageObj,({sender:user?.result?._id,messageBody: userMessage,botResponse:"I couldn't understand!"}))
+            const newMessageData=  Object.assign({},messageObj,({sender:user?.result?._id,messageBody: userMessage,botResponse:"I couldn't understand!"}))
             await setMessage([message.concat(newMessageData)])
             console.log(message)
             setSend('bot')
         }else if(userMessage==='Hi'|| 'Hello'|| 'hello'||'hey'||'hi'){
-            const newMessageData= await Object.assign({},messageObj,({sender:user?.result?._id,messageBody: userMessage,botResponse:"Hello"}))
+            const newMessageData= Object.assign({},messageObj,({sender:user?.result?._id,messageBody: userMessage,botResponse:"Hello"}))
             console.log(newMessageData)
             await setMessage(message.concat(newMessageData))
             console.log(message)
@@ -55,8 +54,8 @@ const ChatScroll=(props)=>{
     return(
         <div className={'chat-scroll'} style={{scrollbarWidth:'none'}}>
             <div className={'msg'}>
-                {message!==null ? message.map((item) => (
-                    <div>
+                {message!==null ? message.map((item,index) => (
+                    <div key={index}>
                     <p title={'Bot'} className={'msg-data data-bot'}>
                         <span>
                             <i className="fa-solid fa-robot"></i>
@@ -65,9 +64,6 @@ const ChatScroll=(props)=>{
                     </p>
                         <p title={user?.result?.name} className={'msg-data data-user'}>
                             {item.messageBody}
-                            <span>
-                                <i className="fa-solid fa-robot"></i>
-                            </span>
                         </p>
                     </div>
                 )):null}

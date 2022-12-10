@@ -22,7 +22,7 @@ const  ChatBox = ({className}) => {
               <i className="fa-regular fa-circle-question"></i>
           </div>
           {show?(
-              <div className={show?'ask-chat-box ask-question-active':" ask-chat-box"}>
+              <div className={'ask-chat-box ask-question-active'}>
                   <div className={'ask-chat-box-header'}>
                       <div onClick={handleClose} className={'x-icon'}>
                           <i className="fa-regular fa-circle-xmark"></i>

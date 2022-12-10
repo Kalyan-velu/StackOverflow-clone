@@ -22,6 +22,9 @@ function LeftSidebar() {
           <NavLink to={"/user"} className={({isActive}) => isActive ? "side-nav-links active" : "side-nav-links"}>
                 <p style={{paddingLeft:"10px"}}>User</p>
           </NavLink>
+          <NavLink to={"/community"} className={({isActive}) => isActive ? "side-nav-links active" : "side-nav-links"}>
+                <p style={{paddingLeft:"10px"}}>Community</p>
+          </NavLink>
           
         </div>
       </nav>
