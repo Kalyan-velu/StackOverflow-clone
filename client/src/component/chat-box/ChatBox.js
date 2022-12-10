@@ -4,7 +4,6 @@ import ChatScroll from "./ChatScroll";
 
 const  ChatBox = ({className}) => {
     const [anchorEl, setAnchorEl] = React.useState(null);
-    const[message,setMessage]=useState('')
 
     const show = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -32,11 +31,7 @@ const  ChatBox = ({className}) => {
                       <span>Here You can Ask Any Programming Related Question.</span>
                   </div>
                   <div className={'ask-chat-area'} style={{scrollbarWidth:"none"}}>
-                      <ChatScroll message={message}/>
-                        <form onSubmit={handleSubmit}>
-                            <input onChange={(e)=>setMessage(e.target.value)} type={'text'}/>
-                           <button type={'submit'}></button>
-                        </form>
+                      <ChatScroll/>
                   </div>
 
               </div>

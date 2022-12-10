@@ -10,7 +10,7 @@ api.interceptors.request.use(req=>{
 export const logIn=(authData)=>axios.post('http://localhost:8000/api/user/login',authData)
 export const signUp=(authData)=>axios.post('http://localhost:8000/api/user/signup',authData)
 export const getAllUsers=()=>axios.get('http://localhost:8000/api/user/all')
-export const updateProfile=(id,updateData)=>api.patch(`http://localhost:8000/api/user/update/${id}`,updateData)
+export const updateProfile=(id,updateData)=>api.patch(`/api/user/update/${id}`,updateData)
 
 export const postQuestion=(questionData)=>api.post('/api/question/ask',questionData)
 export const getAllQuestion=()=>axios.get('http://localhost:8000/api/question/get')
