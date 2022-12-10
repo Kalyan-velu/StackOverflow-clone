@@ -5,7 +5,7 @@
     right:3%;
     bottom: 5%;
     display: grid;
-    border-radius: 0.4rem;
+    border-radius: 0.8rem;
 }
 .chat-active{
     position:fixed;
@@ -15,7 +15,7 @@
     border-radius: 0.4rem;
     min-height: 60%;
     bottom: 3%;
-    background-color: rgb(190, 131, 82);
+    background-color: rgb(196, 187, 206);
 }
 .chat-box-content, .fa-circle-question{
     font-size: 2.3rem;
@@ -70,35 +70,91 @@
     border-radius: 0.5rem;
     margin-top: 0.5rem;
 }
-.ask-chat-display{
-    min-height: calc(21rem - 3rem);
-    max-height: calc(18rem);
-    height: 100%;
-    overflow-x: hidden;
-    padding: 0.72rem;
-    scrollbar-width: none;
-    background-color: #037ecb;
-    border-radius: 0.5rem;
-}
-.ask-chat-display::-webkit-scrollbar{
-    width: 0.6rem;
-}
-.ask-chat-display::-webkit-scrollbar-button{
-    background-color: #9595b0;
-    display: none;
-}
-.ask-chat-display::-webkit-scrollbar-thumb{
-    background-color: #00003e;
-    border-radius: 0.2rem;
-}
 .ask-chat-area form{
-    bottom: 5%;
-    width: 100%;
-    margin-left: 0.2rem;
+    width: 98%;
+    display: flex;
+    margin: 0.2rem auto;
+    justify-content: stretch;
+    align-items: center;
 }
 .ask-chat-area form input{
     width: 18rem;
     border: 0.3rem;
     border-radius: 0.4rem;
-    min-height: 2rem;
+    min-height: 1.7rem;
+    margin: 0.2rem auto;
+}
+.ask-chat-area form .btn{
+    background-color: transparent;
+    border: none;
+}
+.ask-chat-area form .btn .fa-paper-plane{
+    color: aliceblue;
+}
+
+.chat-scroll{
+    background-color: #00003e;
+    border-radius: 0.3rem;
+}
+.chat-scroll .msg{
+    min-height: 20rem;
+    max-height: 20rem;
+    overflow-x: hidden;
+}
+.msg{
+    margin: 0 auto;
+    color: #e3e6e8;
+}
+.msg span i{
+    color: #ef8236;
+}
+.msg-data{
+    background-color: #2594da;
+    padding: 0.4rem;
+    margin: 0.5rem;
+    display: flex;
+    gap:0.4rem;
+    font-size: small;
+    font-weight: 600;
+    border-radius: 0.8rem;
+}
+.data-bot{
+    margin-right: auto;
+    width: fit-content;
+}
+.data-user{
+    margin-left: auto;
+    width: fit-content;
+    justify-content: space-around;
+}
+.msg::-webkit-scrollbar{
+    width: 0.3rem;
+}
+.msg::-webkit-scrollbar-button{
+    background-color: #9595b0;
+    display: none;
+}
+.msg::-webkit-scrollbar-thumb{
+    background-color: #565685;
+    border-radius: 0.2rem;
+}
+.suggestion{
+    display: flex;
+    justify-content: space-around;
+}
+.suggestion .suggest-btn{
+    font-size: 0.7rem;
+    background-color: #9595b0;
+    border-radius: 0.7rem;
+    border:none;
+    color: #e3e6e8;
+    font-family: "Berlin Sans FB",'sans-serif';
+    transition: 600ms;
+}
+.suggest-btn:hover{
+    transform: scale(1.5,1.6);
+    background-color: #007ac6;
+}
+.suggest-btn:nth-child(2){
+    color: rgba(246, 242, 245, 0.45);
 }
