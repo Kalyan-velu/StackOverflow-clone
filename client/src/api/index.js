@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const api=axios.create({baseURL:"https://stack-overflow.onrender.com"})
+const api=axios.create({baseURL:"http://localhost:8000"})
 api.interceptors.request.use(req=>{
     if(localStorage.getItem('Profile')){
         req.headers.authorization=`Bearer ${JSON.parse(localStorage.getItem('Profile')).token}`

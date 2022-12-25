@@ -30,7 +30,6 @@ export const getAllUser=()=>async (dispatch)=>{
     try{
         const {data}=await api.getAllUsers()
         await dispatch({type:"ALL_USER",payload:data.result})
-        await dispatch(showMessage('Get to know Others 🌞'))
     }catch (e) {
         await  dispatch({type:"ERROR",payload:e.message})
         console.log(e)

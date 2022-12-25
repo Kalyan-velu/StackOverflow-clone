@@ -12,7 +12,7 @@
       margin: 3.3rem 1.3rem;
    }
    .auth-container form{
-      width: 95%;
+      max-width: 95%;
       padding: 20px;
       background-color: white;
       border-radius: 10px;

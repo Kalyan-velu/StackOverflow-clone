@@ -1,9 +1,10 @@
 import mongoose from 'mongoose'
+import {ServerApiVersion} from 'mongodb'
 
 export const connectDatabase = ()=>{
     const connectk=process.env.CONNECTION_URL
-    console.log(connectk)
-    mongoose.connect(connectk) //Mongodb URI is fetched from environment variable
-        .then( (c) => console.log( `Database Connected ${c.connection.host}` ))
+    
+    mongoose.connect(connectk, { useNewUrlParser: true, useUnifiedTopology: true }) //Mongodb URI is fetched from environment variable
+        .then( (c) => console.log( `Database Connected ${c.connection.name}` ))
         .catch((e)=>console.log(e))
 }

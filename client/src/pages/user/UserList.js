@@ -5,10 +5,32 @@ import './User.css'
 import Avatar from "../../component/avatar/Avatar";
 
  const UserList=()=>{
+    const [show, setShow] = React.useState(false)
     const {allUser:users}=useSelector((state)=>state.user)
+
+    const style={
+        width:'100%',
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center',
+        backgroundColor:"#00003e",
+        height:'2.3rem',
+        transition:'600ms'
+    }
+
+    React.useEffect(() => {
+      setShow(true)
+      return () => {
+        setTimeout(()=>{
+          setShow(false)
+        },1000)
+      };
+    }, [])
     return(
         <div className='user-list-header'>
-        <h1>Users</h1>
+            <h1>Users</h1>
+           {show?<div style={style} className='msg'>Get to Know Others</div>:null}
+           
         <div className={'user-list-container'}>
         {users &&
         users.map((user,index)=>(

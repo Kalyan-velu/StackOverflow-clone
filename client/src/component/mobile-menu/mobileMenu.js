@@ -14,7 +14,7 @@ const MobileMenu = () => {
     }
   return(
       <div  className={!show?'dropdown':'dropdown dropdown-active'}>
-          <div onClick={handleClose}  className={!show?'stagger-icon':'stagger-icon stagger-icon-active'} aria-activedescendant={'active-menu'}>
+          <div onClick={handleClose}  className={!show?'stagger-icon':'stagger-icon stagger-icon-active'} >
               <i className="fa-solid fa-chevron-down"></i>
           </div>
           <div  onClick={handleClose} onBlur={blur} className={!show?"dropdown-content":"dropdown-content dropdown-content-active"}>
@@ -32,6 +32,9 @@ const MobileMenu = () => {
                       </NavLink>
                       <NavLink to={"/user"} className={({isActive}) => isActive ? "side-nav-links active" : "side-nav-links"}>
                           <p style={{paddingLeft:"10px"}}>User</p>
+                      </NavLink>
+                      <NavLink to={"/community"} className={({isActive}) => isActive ? "side-nav-links active" : "side-nav-links"}>
+                          <p style={{paddingLeft:"10px"}}>Community</p>
                       </NavLink>
 
                   </div>
