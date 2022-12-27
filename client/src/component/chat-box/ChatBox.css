@@ -29,10 +29,10 @@
 .content-active{
   display: none;
 }
-.ask-chat-box{
+/* .ask-chat-box{
 
 
-}
+} */
 .ask-question-active{
     max-width: 21rem;
     min-width: 20rem;

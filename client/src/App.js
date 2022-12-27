@@ -17,9 +17,9 @@ function App() {
 
   React.useEffect(() => {
     return () => {
+      dispatch(getAllQuestion())
       dispatch(showMessage("Loading..."))
       dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))))
-      dispatch(getAllQuestion())
     };
   }, [dispatch])
 

@@ -2,12 +2,14 @@ import {createReducer,createAction} from '@reduxjs/toolkit'
 const initialState={
     answer:null,
     message:null,
-    error:null
+    error:null,
+    loading:false
 }
 const postAnswer=createAction('POST_ANSWER')
 const err=createAction('ERROR')
 const msg=createAction('MESSAGE')
 const clear=createAction('CLEAR')
+const load=createAction('LOAD')
 
 export const AnswerReducer=createReducer(initialState,builder => {
     builder
@@ -24,6 +26,10 @@ export const AnswerReducer=createReducer(initialState,builder => {
             state.error=null
             state.message=null
         })
+        .addCase(load,(state,action)=>{
+            state.load=action.payload
+        })
 
 
 })
+

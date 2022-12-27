@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import Button from "../../component/button/Button"
 import {useDispatch,useSelector} from 'react-redux'
 import {askQuestion, getAllQuestion} from "../../actions/AskQuestion";
+import Nothing from '../../component/loading/Nothing'
 const AskQuestion = () => {
    const [questionTitle,setQuestionTitle]=useState('')
    const [questionBody, setQuestionBody] = useState('')
@@ -22,7 +23,13 @@ const AskQuestion = () => {
          setQuestionBody(questionBody+"\n")
       }
    }
-
+   React.useEffect(() => {
+      if(!User){
+            navigate('/auth')
+      }else(
+         navigate('/ask-question')
+      )
+   }, [User,navigate])
   return (
    <>
       <div className='ask-question'>
