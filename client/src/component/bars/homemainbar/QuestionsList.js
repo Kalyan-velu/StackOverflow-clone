@@ -1,11 +1,12 @@
 import React from 'react'
 import Question from './Question'
+import Nothing from '../../loading/Nothing'
 
 const QuestionList = ({question}) => {
   return ( 
-    <div>
+    <div className='q-list'>
       {question.length===0?
-      <h1>Loading..</h1>
+      <Nothing children={'Question'} childrenlink='ask-question'/>
       :
       <div>
       {question.map((q)=>{

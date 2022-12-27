@@ -6,7 +6,6 @@ import moment from "moment";
 import LeftSidebar from "../../../component/bars/leftsidebar/LeftSidebar";
 import Avatar from "../../../component/avatar/Avatar";
 import {getAllUser} from "../../../actions/auth";
-import {showMessage} from "../../../actions/Error";
 import Button from "../../../component/button/Button";
 import EditUserProfile from "./EditProfile";
 import ProfileBio from "./ProfileBio";
@@ -15,33 +14,19 @@ import './UserProfile.css'
 const UserProfile=()=>{
     const {id}=useParams()
     const dispatch=useDispatch()
-    const[user,setUser]=useState(null)
     const[Switch,setSwitch]=useState(false)
     const {currentUser:loggedUser,allUser}=useSelector((state)=>state.user)
-
+    const user=allUser?.filter((user)=>user?._id === id)[0]
 
     async function effect() {
-        await dispatch(getAllUser())
-        const currentProfile = allUser?.filter((user) => user?._id === id)[0]
-        const updatedUser= await JSON.parse(localStorage.getItem('updatedUser'))
-        if(updatedUser){
-            console.log(`update:${updatedUser}`)
-            setUser(updatedUser)
-        }else if(currentProfile) {
-            await localStorage.setItem('currentProfile',JSON.stringify( currentProfile))
-            showMessage('Wait please 🥶')
-            setUser(currentProfile)
-        }else{
-            await setUser(JSON.parse(localStorage.getItem('currentProfile')))
-            showMessage('Wait please 🥶')
-        }
+        await dispatch(getAllUser()) 
     }
     React.useEffect(()=>{
         effect().then(
-            r=> console.log(user,r)
+            r=> console.log(r)
         )
 
-    },[])
+    },[user])
 
     return(
         <div className={'home-container-1'}>
@@ -58,16 +43,16 @@ const UserProfile=()=>{
                                     fontSize={'50px'}
                                     px={'40px'}
                                     py={'30px'}
-                                    children={user?.name?.charAt(0).toUpperCase()}
+                                    children={user.name?.charAt(0).toUpperCase()}
                                 />
                                 <div className={'user-name'}>
-                                    <h3>{user?.name}</h3>
-                                    <h3>{user?.email}</h3>
-                                    <p><i className="fa-solid fa-cake-candles"/> Joined {moment(user?.joinedOn).fromNow()}</p>
+                                    <h3>{user.name}</h3>
+                                    <h3>{user.email}</h3>
+                                    <p><i className="fa-solid fa-cake-candles"/> Joined {moment(user.joinedOn).fromNow()}</p>
                                 </div>
                                 </div>
                                 <div>
-                                    {user?._id=== loggedUser?.result._id?(
+                                    {user._id=== loggedUser?.result._id?(
                                         <Button
                                             type={'button'}
                                             onClick={()=>setSwitch(!Switch)}
@@ -81,7 +66,7 @@ const UserProfile=()=>{
                                 </div>
                             </div>
                             <>
-                                {user && Switch ?(
+                                {Switch ?(
                                         <EditUserProfile Switch={Switch} setSwitch={setSwitch}/>
                                     ):
                                     (

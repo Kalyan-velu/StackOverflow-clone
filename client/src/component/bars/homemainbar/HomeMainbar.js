@@ -5,13 +5,13 @@ import QuestionList from './QuestionsList'
 import "./HomeMainbar.css"
 import {useDispatch, useSelector} from "react-redux";
 import {getAllQuestion} from "../../../actions/AskQuestion";
-
-
+import Loading from '../../loading/Loading'
 function HomeMainbar() {
     const dispatch=useDispatch()
     const location=useLocation()
    const {currentUser:user}=useSelector((state)=>state.user)
    const {questionList}=useSelector((state)=>state.question)
+  //  const {loading}=useSelector((state)=>state.answer)
 
     React.useEffect(() => {
         return () => {
@@ -26,7 +26,7 @@ function HomeMainbar() {
         <Link to={!user ?"/auth":"/ask-question"} className='ask-btn'> Ask Question</Link>
       </div>
       <div >
-        {questionList ===null? null :
+        {questionList === null ? <Loading/> :
         <>
           <p>{questionList.length} questions</p>
           <QuestionList question={questionList}/>

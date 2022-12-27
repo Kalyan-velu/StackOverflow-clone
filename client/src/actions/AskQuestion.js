@@ -19,10 +19,13 @@ export const askQuestion=(questionData,navigate)=>async (dispatch)=>{
 }
 export const getAllQuestion=()=>async (dispatch)=>{
     try {
+        await dispatch({type:"LOAD",payload:true})
         const {data}=await api.getAllQuestion()
         await dispatch({type:"ALL_QUESTIONS",payload:data})
+        await dispatch({type:"LOAD",payload:false})
     }catch (e) {
         console.log(e)
+        await dispatch({type:"LOAD",payload:false})
         await  dispatch(showError("Network Error"))
     }
 }

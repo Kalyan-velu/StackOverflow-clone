@@ -15,12 +15,9 @@ export const removeCurrentUser =()=>async(dispatch)=>{
 export const updateUserDetails=(setSwitch,Switch,id,updateData)=>async (dispatch)=>{
    const {name,about,tags}=updateData
    try{
-      const {data}=await api.updateProfile(id,{name,about,tags})
-      await dispatch({type:'UPDATE_USER',payload:data.result})
+      await api.updateProfile(id,{name,about,tags})
       await setSwitch(!Switch)
-      console.log(data)
-      dispatch(getAllUser())
-      await localStorage.setItem('updatedProfile',JSON.stringify( data.result))
+      await dispatch(getAllUser())
       await dispatch(showMessage('User Details Updated'))
    }catch (e) {
       console.log(e)

@@ -14,6 +14,7 @@ function Auth() {
     const[email,setEmail]=useState("")
     const[password,setPassword]=useState("")
     const [show, setShow] = React.useState(false)
+    const [loading, setLoading] = React.useState(false)
 
     async function handleSubmit(e) {
         e.preventDefault()
@@ -23,10 +24,10 @@ function Auth() {
                 alert("Enter All credentials !")
             }
             const value={name,email,password}
-            dispatch(signup(value,navigate))
+            dispatch(signup(value,navigate,setLoading))
         }else {
             const logValue = {email, password}
-            dispatch(login(logValue,navigate))
+            dispatch(login(logValue,navigate,setLoading))
         }
 
     }
@@ -77,9 +78,14 @@ function Auth() {
                         </span>
                   </label>
                )}
+            {!loading ?
             <Button className="auth-btn" type="submit">
               {!isSigned?"Log In":"Sign Up"}
             </Button>
+            :
+            <Button className="auth-btn" type="submit">
+              {!isSigned?"Logging In":"Signing Up"}
+            </Button>}
             {
                isSigned && (
                   <p> By clicking "Sign Up", you agree to our
