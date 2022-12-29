@@ -11,6 +11,7 @@ import Button from "./component/button/Button";
 import {clrError, showMessage} from "./actions/Error";
 import MobileMenu from "./component/mobile-menu/mobileMenu";
 import ChatBox from "./component/chat-box/ChatBox";
+
 function App() {
   const dispatch=useDispatch()
   const {error,message}=useSelector((state)=>state.answer)
@@ -26,6 +27,7 @@ function App() {
   const clearMessage=()=>{
     dispatch(clrError())
   }
+  
   return (
     <div className="App">
     <Router>
@@ -45,8 +47,9 @@ function App() {
             </div>
           </div>}
       {<AppRoutes />}
+      <ChatBox className={'chat-box-container'}/>
     </Router>
-    <ChatBox className={'chat-box-container'}/>
+    
     </div>
   );
 }

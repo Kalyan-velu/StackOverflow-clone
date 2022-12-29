@@ -28,6 +28,9 @@
     padding: 0.4rem;
     width: inherit;
   }
+  .img {
+    width: calc(100%);
+  }
   .newpost-form label,
   label textarea {
     width: 100%;
@@ -77,6 +80,15 @@
     margin: 2.3rem 0 0 0;
     padding: 1.4rem;
     border-radius: 0.3rem;
+  }
+  .submit-btn {
+    display: flex;
+    justify-content: center;
+  }
+  .submit-btn .submit-link {
+    font-weight: 600;
+    border-radius: 0.4rem;
+    border: 0.06rem solid #c9c0be;
   }
 }
 @media (min-width: 786px) {
