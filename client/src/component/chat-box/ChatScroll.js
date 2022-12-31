@@ -132,33 +132,7 @@ const ChatScroll=(props)=>{
             :
             null
             }
-        
 
-            {/* {(show && !login)?
-            <div className={'msg'}>
-           
-            <div ref={bottomRef}/>
-            </div>   
-            :
-            null
-            }
-            {(show && login)?
-            <div className={'msg'}>
-            
-            <div ref={bottomRef}/>
-            </div>   
-            :
-            null
-            }
-
-            {(!login && !User)?
-            <div className="msg">
-                <Auth/>
-            </div>           
-            :
-            null
-            } */}
- 
             <div className={'suggestion'}>              
                 <Button onClick={()=>{!User?setLogin(!login):setShow(!show)}} className={'suggest-btn'} children={!User?'Login to Ask':'Ask Question!'}/>
             </div>
