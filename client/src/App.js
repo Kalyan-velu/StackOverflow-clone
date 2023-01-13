@@ -3,7 +3,7 @@ import './App.css';
 import Navbar from './component/navbar/Navbar';
 import AppRoutes from './routes/Route';
 import * as React from 'react'
-import { BrowserRouter as Router} from 'react-router-dom';
+import { BrowserRouter as Router,useLocation} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import {setCurrentUser} from './actions/currentUser'
 import {getAllQuestion} from "./actions/AskQuestion";
@@ -11,6 +11,7 @@ import Button from "./component/button/Button";
 import {clrError, showMessage} from "./actions/Error";
 import MobileMenu from "./component/mobile-menu/mobileMenu";
 import ChatBox from "./component/chat-box/ChatBox";
+
 function App() {
   const dispatch=useDispatch()
   const {error,message}=useSelector((state)=>state.answer)
@@ -26,6 +27,7 @@ function App() {
   const clearMessage=()=>{
     dispatch(clrError())
   }
+  
   return (
     <div className="App">
     <Router>
@@ -45,8 +47,9 @@ function App() {
             </div>
           </div>}
       {<AppRoutes />}
+      <ChatBox className={'chat-box-container'}/>
     </Router>
-    <ChatBox className={'chat-box-container'}/>
+    
     </div>
   );
 }

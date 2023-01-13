@@ -1,7 +1,9 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import "./LeftSidebar.css"
 function LeftSidebar() {
+  const {currentUser:user}=useSelector(state=>state.user)
   return (
     <div className='left-sidebar'>
       <nav className="side-nav">

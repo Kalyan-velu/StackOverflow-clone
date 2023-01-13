@@ -12,7 +12,7 @@ export const signup=(authData,navigate,setLoading)=>async (dispatch)=>{
         await dispatch(showMessage('Successfully Signed Up'))
         await dispatch(showMessage('Redirecting...'))
         await setLoading(false)
-        navigate('/')
+        navigate(-1)
     }catch (e) {
         await  dispatch(showError(e.message))
         await setLoading(false)
@@ -26,7 +26,7 @@ export const login=(authData,navigate,setLoading)=>async (dispatch)=>{
         await dispatch({type:"AUTH",data})
          await dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))))
         await setLoading(false)
-        navigate('/')
+        navigate(-1)
 
     }catch (e) {
         await  dispatch({type:"ERROR",payload:e.response.data.message})
@@ -34,6 +34,7 @@ export const login=(authData,navigate,setLoading)=>async (dispatch)=>{
         console.log(e)
     }
 }
+
 export const getAllUser=()=>async (dispatch)=>{
     try{
         const {data}=await api.getAllUsers()

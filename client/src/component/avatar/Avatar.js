@@ -1,8 +1,10 @@
 import React from 'react'
-function Avatar({value,children,className,backgroundColor,cursor, px,py, color,borderRadius, fontSize, textAlign}) {
+
+
+export default function Avatar({value,children,src,className,backgroundColor,cursor,title, px,py, color,borderRadius, fontSize, textAlign}) {
   const style={
     backgroundColor,
-    padding:`${py} ${px}`,
+    padding:`${!src?py:"0"} ${!src?px:"0"}`,
     color:color || 'black',
     borderRadius,
     fontSize,
@@ -12,10 +14,9 @@ function Avatar({value,children,className,backgroundColor,cursor, px,py, color,b
   }
   
   return (
-    <div className={className} style={style}>
-      {value||children.substring(0,1).toUpperCase()}
+    <div title={title} className={className} style={style}>
+      {src?<img src={src} alt={""}/>:null}
+      {!src?(value||children?.substring(0,1)?.toUpperCase()):null}
     </div>
   )
 }
-
-export default Avatar

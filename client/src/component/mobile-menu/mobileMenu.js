@@ -1,10 +1,13 @@
 import React, {useState} from 'react'
 import './mobile.css'
 import {NavLink} from "react-router-dom";
+import ClickAwayListener from '../button/ClickAwayListener';
+
 const MobileMenu = () => {
     const [show,setShow]=useState(false)
+
     function handleClose(){
-        setShow(!show)
+        setShow(false)
     }
     function blur(e){
         if(e && e.relatedTarget){
@@ -13,8 +16,9 @@ const MobileMenu = () => {
         }
     }
   return(
+    <ClickAwayListener onClickAway={handleClose}>
       <div  className={!show?'dropdown':'dropdown dropdown-active'}>
-          <div onClick={handleClose}  className={!show?'stagger-icon':'stagger-icon stagger-icon-active'} >
+          <div onClick={()=>setShow(!show)}  className={!show?'stagger-icon':'stagger-icon stagger-icon-active'} >
               <i className="fa-solid fa-chevron-down"></i>
           </div>
           <div  onClick={handleClose} onBlur={blur} className={!show?"dropdown-content":"dropdown-content dropdown-content-active"}>
@@ -40,6 +44,7 @@ const MobileMenu = () => {
                   </div>
               </div>
       </div>
+      </ClickAwayListener>
   )
 }
 export default MobileMenu

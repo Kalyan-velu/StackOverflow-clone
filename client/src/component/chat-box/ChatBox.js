@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import './ChatBox.css'
 import ChatScroll from "./ChatScroll";
+import ClickAwayListener from '../button/ClickAwayListener';
 
 const  ChatBox = ({className}) => {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -12,11 +13,10 @@ const  ChatBox = ({className}) => {
     const handleClose = () => {
         setAnchorEl(null);
     };
-    const handleSubmit=(e)=>{
-        e.preventDefault()
-    }
+   
 
   return(
+    <ClickAwayListener onClickAway={handleClose}>
       <div className={!show?className:" chat-active"}>
           <div onClick={handleClick} className={show?"chat-box-content content-active":"chat-box-content"}>
               <i className="fa-regular fa-circle-question"></i>
@@ -38,6 +38,7 @@ const  ChatBox = ({className}) => {
           ): null}
 
       </div>
+    </ClickAwayListener>
   )
 }
 

@@ -55,12 +55,12 @@ function Navbar() {
              (<div className={'logout'}>
                <Link className={'avatar-id'} to={`/user/${User?.result?._id}`} style={{textDecoration:'none'}}>
                   <Avatar
-                     backgroundColor={'#009dff'}
-                     px={'12px'}
-                     py={'6px'}
+                     // backgroundColor={'#009dff'}
+                     src={User?.result?.avatar?.url}
                      borderRadius={'50%'}
                      children={User?.result.name}
                      color="white"
+                     className={"avatar-navbar"}
                   />
                </Link>
                <Button id={'logout-btn-id'} onClick={logOut} className={"nav-item nav-links"} >

@@ -19,3 +19,8 @@ export const voteQuestion=(id,value,userId)=>api.patch(`/api/question/vote/${id}
 
 export const postAnswer=(id,{noOfAnswers,answerBody,userAnswered,userId})=>api.patch(`/api/answer/post/${id}`,{noOfAnswers,answerBody,userAnswered,userId})
 export const deleteAnswer=(id,answerData)=>api.patch(`/api/answer/delete/${id}`,answerData)
+
+export const postNew=(postData)=>api.post(`/api/post/upload`,postData)
+export const getAllPost=()=>api.get(`/api/post/get`)
+export const deletePostApi=(postId)=>api.delete(`/api/post/delete/${postId}`)
+export const postFeedback=(id,value)=>api.patch(`/api/post/feedback/${id}`,value)

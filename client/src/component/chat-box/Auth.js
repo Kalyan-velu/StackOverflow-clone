@@ -1,14 +1,13 @@
 import  React,{useState} from 'react'
-import "./Auth.css"
+import './ChatBox.css'
 import {Logo} from '../../assets/Logo'
 import Button from '../../component/button/Button'
-import About from './About'
 import {login, signup} from "../../actions/auth";
 import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
 function Auth() {
     const dispatch=useDispatch()
-    const navigate=useNavigate()    
+    const navigate=useNavigate()
     const [isSigned, setIsSigned] = useState(false)
     const [name, setName] = useState('')
     const[email,setEmail]=useState("")
@@ -18,7 +17,7 @@ function Auth() {
 
     async function handleSubmit(e) {
         e.preventDefault()
-        
+
         if(isSigned){
             if(!name || !email || !password){
                 alert("Enter All credentials !")
@@ -29,15 +28,12 @@ function Auth() {
             const logValue = {email, password}
             dispatch(login(logValue,navigate,setLoading))
         }
+
     }
 
     return (
-    <section className='auth-section'>
-      {isSigned && (
-         <About/>
-      )}
-      <div className="auth-container">
-         {!isSigned && <Logo className="login-logo"/>}
+    <div className='auth-chatbox'>
+      <div className="auth-container-chatbox">
          <form onSubmit={handleSubmit} autoComplete='false'>
             {isSigned && 
                <label htmlFor="name">
@@ -55,12 +51,13 @@ function Auth() {
                   <h4> Password :</h4>
                   {!isSigned && <span> Forgot Password ? </span>}
                </div>
-
-               <input style={{marginBottom:"0px"}} value={password} onChange={(e)=>setPassword(e.target.value)} type={!show?"password":"text"} name="password" id="password" />
-                <label htmlFor="check">
-                    <input type="checkbox" onClick={()=>setShow(!show)} name="checkbox" id="check" />
-                    <span> Show Password</span>
-                </label>
+            <input style={{marginBottom:"0px"}} value={password} onChange={(e)=>setPassword(e.target.value)} type={!show?"password":"text"} name="password" id="password" />
+            <label htmlFor="check">
+               <div className='check'>
+                  <input type="checkbox" onClick={()=>setShow(!show)} name="checkbox" id="check" />
+                  <span> Show Password</span>
+               </div>
+            </label>
                {isSigned && 
                <p>Password must contain at least 8 characters,
                    including  1 letter and 1 symbol.</p>
@@ -69,12 +66,14 @@ function Auth() {
             {
                isSigned && (
                   <label htmlFor="check">
+                     <div className='check-in'>
                         <input type="checkbox" name="checkbox" id="check" />
                         <span>
                            Opt-in to receive occasional product updates
                            user,research <br/> invitation, company
                            announcements, and digests
                         </span>
+                        </div>
                   </label>
                )}
             {!loading ?
@@ -103,7 +102,7 @@ function Auth() {
             </Button>
          </p>
       </div>
-   </section>
+   </div>
   )
 }
 
