@@ -61,12 +61,11 @@ const QuestionDetails = () =>{
 
     function handleDownVote(_id) {
         dispatch(voteQuestion(_id,'Unliked',User?.result._id))
-        console.log("Down")
+      
     }
 
     function handleUpvote(_id) {
-        dispatch(voteQuestion(_id,'Liked',User?.result._id))
-        console.log("Up")
+        dispatch(voteQuestion(_id,'Liked',User?.result._id))       
     }
     
 
@@ -99,7 +98,7 @@ const QuestionDetails = () =>{
                                     <div className="question-action-user">
                                        <div>
                                           <Button onClick={handleShare} className="button"> Share </Button>
-                                           {User?.result?._id ===question?.userId?
+                                           {User?.result?._id ===question.userId?
                                                <Button onClick={deleteQuestion} className="button"> Delete </Button>
                                                : null
                                            }

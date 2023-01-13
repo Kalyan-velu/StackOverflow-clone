@@ -8,7 +8,7 @@ import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
 function Auth() {
     const dispatch=useDispatch()
-    const navigate=useNavigate()
+    const navigate=useNavigate()    
     const [isSigned, setIsSigned] = useState(false)
     const [name, setName] = useState('')
     const[email,setEmail]=useState("")
@@ -18,7 +18,7 @@ function Auth() {
 
     async function handleSubmit(e) {
         e.preventDefault()
-
+        
         if(isSigned){
             if(!name || !email || !password){
                 alert("Enter All credentials !")
@@ -29,7 +29,6 @@ function Auth() {
             const logValue = {email, password}
             dispatch(login(logValue,navigate,setLoading))
         }
-
     }
 
     return (

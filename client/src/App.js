@@ -3,7 +3,7 @@ import './App.css';
 import Navbar from './component/navbar/Navbar';
 import AppRoutes from './routes/Route';
 import * as React from 'react'
-import { BrowserRouter as Router} from 'react-router-dom';
+import { BrowserRouter as Router,useLocation} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import {setCurrentUser} from './actions/currentUser'
 import {getAllQuestion} from "./actions/AskQuestion";

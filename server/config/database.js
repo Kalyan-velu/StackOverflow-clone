@@ -1,5 +1,4 @@
 import mongoose from 'mongoose'
-import {ServerApiVersion} from 'mongodb'
 
 export const connectDatabase = ()=>{
     const connectk=process.env.CONNECTION_URL

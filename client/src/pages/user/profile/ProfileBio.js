@@ -2,21 +2,9 @@ import React from 'react'
 
 const ProfileBio = ({user}) => {
   return(
-      <div>
-          <div>
-          {user?.tags.length !== 0 ?(
-                  <>
-                    <h4>Tags Watched</h4>
-                      {
-                          user?.tags.map((tag)=>(
-                              <p key={tag}>{tag}</p>
-                          ))
-                      }
-                  </>
-              ):<div>0 tags watched</div>
-          }
-          </div>
-          <div>
+      <div className='profile-bio'>
+            <div className='profile-bio-about'>
+            <h3>About</h3>
               {
                   user?.about ?(
                      <p>{user.about}</p>
@@ -25,6 +13,19 @@ const ProfileBio = ({user}) => {
                   )
               }
           </div>
+          {user?.tags.length !== 0 ?(
+                  <div>
+                    <h4>Tags Watched</h4>
+                    <div className="profile-bio-tags">
+                      {
+                          user?.tags.map((tag)=>(
+                              <p key={tag}>{tag}</p>
+                          ))
+                      }
+                    </div>
+                  </div>
+              ):<div>0 tags watched</div>
+          }        
       </div>
   )
 }

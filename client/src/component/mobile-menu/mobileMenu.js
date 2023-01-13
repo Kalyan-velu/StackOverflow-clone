@@ -2,8 +2,10 @@ import React, {useState} from 'react'
 import './mobile.css'
 import {NavLink} from "react-router-dom";
 import ClickAwayListener from '../button/ClickAwayListener';
+
 const MobileMenu = () => {
     const [show,setShow]=useState(false)
+
     function handleClose(){
         setShow(false)
     }

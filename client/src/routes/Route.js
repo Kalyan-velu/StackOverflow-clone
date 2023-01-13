@@ -10,7 +10,9 @@ import Users from "../pages/user/Users";
 import UserProfile from "../pages/user/profile/UserProfile";
 import Community from '../pages/community/Community'
 
-function AppRoutes() {
+
+
+function AppRoutes() { 
   return (
       <Routes>
          <Route exact path='/' element={<Home/>}/>

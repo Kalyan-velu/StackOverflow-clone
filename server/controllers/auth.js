@@ -27,7 +27,7 @@ export const signup = async(req,res)=>{
 }
 export const login = async(req,res)=>{
     const {email, password} = req.body;
-    console.log(email)
+    
     try{
         let existingUser = await User.findOne({email}).select("+password")
         if(!existingUser){

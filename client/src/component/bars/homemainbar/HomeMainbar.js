@@ -11,7 +11,6 @@ function HomeMainbar() {
     const location=useLocation()
    const {currentUser:user}=useSelector((state)=>state.user)
    const {questionList}=useSelector((state)=>state.question)
-  //  const {loading}=useSelector((state)=>state.answer)
 
     React.useEffect(() => {
         return () => {
@@ -26,7 +25,7 @@ function HomeMainbar() {
         <Link to={!user ?"/auth":"/ask-question"} className='ask-btn'> Ask Question</Link>
       </div>
       <div >
-        {questionList === null ? <Loading/> :
+        {(questionList.length === null) ? <Loading/> :
         <>
           {questionList.length === 0?null:<p>{questionList.length} questions</p>}
           <QuestionList question={questionList}/>
