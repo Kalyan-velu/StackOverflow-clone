@@ -25,7 +25,7 @@ function HomeMainbar() {
         <Link to={!user ?"/auth":"/ask-question"} className='ask-btn'> Ask Question</Link>
       </div>
       <div >
-        {(questionList.length === null) ? <Loading/> :
+        {(questionList === null) ? <Loading/> :
         <>
           {questionList.length === 0?null:<p>{questionList.length} questions</p>}
           <QuestionList question={questionList}/>
